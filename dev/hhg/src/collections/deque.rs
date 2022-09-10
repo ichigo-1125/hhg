@@ -9,12 +9,20 @@
     - Deque
 
     - コンストラクタ
+    - 要素へのアクセス
+    - 状態の取得
+    - Dequeの伸縮
+
+    - トレイとの実装
+
+    - macro
 
 */
 
 #![doc = include_str!("../../doc/collections/deque/deque.md")]
 
 use std::collections::VecDeque;
+use std::ops::{ Deref, DerefMut };
 
 
 //------------------------------------------------------------------------------
@@ -61,6 +69,154 @@ impl<T> Deque<T>
 
 
 //------------------------------------------------------------------------------
+//  要素へのアクセス
+//------------------------------------------------------------------------------
+impl<T> Deque<T>
+{
+    //--------------------------------------------------------------------------
+    //  get
+    //
+    //  指定したインデックスの要素の参照を取得する。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/get.md")]
+    #[inline]
+    pub fn get( &self, index: usize ) -> Option<&T>
+    {
+        self.deq.get(index)
+    }
+
+    //--------------------------------------------------------------------------
+    //  get_mut
+    //
+    //  指定したインデックスの要素の可変参照を取得する。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/get_mut.md")]
+    #[inline]
+    pub fn get_mut( &mut self, index: usize ) -> Option<&mut T>
+    {
+        self.deq.get_mut(index)
+    }
+}
+
+
+//------------------------------------------------------------------------------
+//  状態の取得
+//------------------------------------------------------------------------------
+impl<T> Deque<T>
+{
+    //--------------------------------------------------------------------------
+    //  len
+    //
+    //  要素数を取得する。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/len.md")]
+    #[inline]
+    pub fn len( &self ) -> usize
+    {
+        self.deq.len()
+    }
+
+    //--------------------------------------------------------------------------
+    //  is_empty
+    //
+    //  Dequeが空であるか確認する。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/is_empty.md")]
+    #[inline]
+    pub fn is_empty( &self ) -> bool
+    {
+        self.deq.is_empty()
+    }
+
+    //--------------------------------------------------------------------------
+    //  capacity
+    //
+    //  容量を取得する。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/capacity.md")]
+    #[inline]
+    pub fn capacity( &self ) -> usize
+    {
+        self.deq.capacity()
+    }
+}
+
+
+//------------------------------------------------------------------------------
+//  Dequeの伸縮
+//------------------------------------------------------------------------------
+impl<T> Deque<T>
+{
+    //--------------------------------------------------------------------------
+    //  reserve
+    //
+    //  容量を確保する。将来の再確保に備えて余分に容量を確保する可能性がある。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/reserve.md")]
+    #[inline]
+    pub fn reserve( &mut self, additional: usize )
+    {
+        self.deq.reserve(additional);
+    }
+
+    //--------------------------------------------------------------------------
+    //  reserve_exact
+    //
+    //  容量を確保する。将来の再確保に備えて余分に容量を確保することはない。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/reserve_exact.md")]
+    #[inline]
+    pub fn reserve_exact( &mut self, additional: usize )
+    {
+        self.deq.reserve_exact(additional);
+    }
+
+    //--------------------------------------------------------------------------
+    //  shrink_to_fit
+    //
+    //  要素数に合わせて容量を縮小する。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/deque/shrink_to_fit.md")]
+    #[inline]
+    pub fn shrink_to_fit( &mut self )
+    {
+        self.deq.shrink_to_fit();
+    }
+}
+
+
+//------------------------------------------------------------------------------
+//  トレイトの実装
+//------------------------------------------------------------------------------
+
+impl<T> Deref for Deque<T>
+{
+    type Target = VecDeque<T>;
+
+    //--------------------------------------------------------------------------
+    //  deref
+    //--------------------------------------------------------------------------
+    #[inline]
+    fn deref( &self ) -> &VecDeque<T>
+    {
+        &self.deq
+    }
+}
+
+impl<T> DerefMut for Deque<T>
+{
+    //--------------------------------------------------------------------------
+    //  deref_mut
+    //--------------------------------------------------------------------------
+    #[inline]
+    fn deref_mut( &mut self ) -> &mut VecDeque<T>
+    {
+        &mut self.deq
+    }
+}
+
+
+//------------------------------------------------------------------------------
 //  macro
 //------------------------------------------------------------------------------
 #[macro_export]
@@ -71,20 +227,24 @@ macro_rules! deque
         Deque { deq: ::std::collections::VecDeque::new() }
     };
 
-    ($elem: expr; $n: expr) =>
+    ( $elem: expr; $n: expr ) =>
     {
-        let mut deq = ::std::collections::VecDeque::new();
-        deq.resize_with($n, || $elem);
-        Deque { deq }
+        {
+            let mut deq = ::std::collections::VecDeque::new();
+            deq.resize_with($n, || $elem);
+            Deque { deq }
+        }
     };
 
-    ( $($elem: expr),+ $(,)? ) =>
+    ( $( $elem: expr ),+ $(,)? ) =>
     {
-        const CAP: usize = $crate::count!($($elem),*);
-        let mut deq = ::std::collections::VecDeque::with_capacity(CAP);
-        $(
-            deq.push_back($elem);
-        )+
-        Deque { deq }
+        {
+            const CAP: usize = $crate::count!($($elem),*);
+            let mut deq = ::std::collections::VecDeque::with_capacity(CAP);
+            $(
+                deq.push_back($elem);
+            )+
+            Deque { deq }
+        }
     };
 }
