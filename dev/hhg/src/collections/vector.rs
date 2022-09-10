@@ -377,7 +377,7 @@ impl<T> Vector<T>
     #[inline]
     pub fn split_off( &mut self, at: usize ) -> Vector<T>
     {
-        Vector{ v: self.v.split_off(at) }
+        Vector { v: self.v.split_off(at) }
     }
 
     //--------------------------------------------------------------------------
@@ -1015,7 +1015,7 @@ impl<T> DerefMut for Vector<T>
 
 impl<T, U> PartialEq<U> for Vector<T>
     where
-        Vec<T>: PartialEq<U>
+        Vec<T>: PartialEq<U>,
 {
     //--------------------------------------------------------------------------
     //  eq
@@ -1029,7 +1029,7 @@ impl<T, U> PartialEq<U> for Vector<T>
 
 impl<T> PartialEq<Vector<T>> for Vec<T>
     where
-        T: PartialEq
+        T: PartialEq,
 {
     //--------------------------------------------------------------------------
     //  eq
