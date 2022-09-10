@@ -20,7 +20,6 @@
     - トレイトの実装
 
     - macro
-    - test
 
 
     # TODO
@@ -1073,13 +1072,13 @@ macro_rules! vector
         Vector { v: ::std::vec::from_elem($elem, $n) }
     };
 
-    ( $( $x:expr ),* ) =>
+    ( $( $elem:expr ),* ) =>
     {
-        Vector { v: <[_]>::into_vec(Box::new([ $( $x ),* ])) }
+        Vector { v: <[_]>::into_vec(Box::new([ $( $elem ),* ])) }
     };
 
-    ( $( $x:expr ),+, ) =>
+    ( $( $elem:expr ),+, ) =>
     {
-        Vector { v: vec![ $( $x ),* ] }
+        Vector { v: vec![ $( $elem ),* ] }
     };
 }
