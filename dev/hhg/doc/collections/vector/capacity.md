@@ -6,5 +6,5 @@
 use hhg::collections::vector::Vector;
 
 let u: Vector<i32> = Vector::with_capacity(10);
-assert_eq!(u.capacity(), 10);
+assert!(u.capacity() >= 10);
 ```
