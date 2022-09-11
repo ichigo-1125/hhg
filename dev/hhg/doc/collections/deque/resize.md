@@ -7,7 +7,7 @@ new_lenが現在の長さよりも小さかった場合、new_lenに合わせて
 ## 使用例
 
 ```
-use hhg::collections::deque::Deque;
+use hhg::collections::Deque;
 use hhg::deque;
 
 let mut deq = deque![15, 31, 11, 25];

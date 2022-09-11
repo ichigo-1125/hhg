@@ -3,7 +3,7 @@ Dequeの内容を連続したメモリ領域に配置し直し、スライスを
 ## 使用例
 
 ```
-use hhg::collections::deque::Deque;
+use hhg::collections::Deque;
 
 let mut buf = Deque::with_capacity(15);
 

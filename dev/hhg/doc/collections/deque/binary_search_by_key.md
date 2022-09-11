@@ -4,7 +4,7 @@ Dequeをキー抽出関数でバイナリ検索する。ソート済みのDeque�
 ## 使用例
 
 ```
-use hhg::collections::deque::Deque;
+use hhg::collections::Deque;
 use hhg::deque;
 
 let s = deque![

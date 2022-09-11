@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::deque::Deque;
+use hhg::collections::Deque;
 use hhg::deque;
 
 let deq = deque![15, 31, 11, 25];

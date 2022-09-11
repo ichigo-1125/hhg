@@ -7,7 +7,7 @@
 ## 使用例
 
 ```
-use hhg::collections::deque::Deque;
+use hhg::collections::Deque;
 
 let deq: Deque<i32> = Deque::with_capacity(10);
 ```

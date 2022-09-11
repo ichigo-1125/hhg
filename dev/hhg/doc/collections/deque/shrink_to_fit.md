@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::deque::Deque;
+use hhg::collections::Deque;
 
 let mut deq = Deque::with_capacity(10);
 deq.extend([1, 2, 3]);

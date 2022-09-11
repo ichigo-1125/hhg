@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::deque::Deque;
+use hhg::collections::Deque;
 use hhg::deque;
 
 let mut deq = deque!["a", "b", "c", "d", "e"];
