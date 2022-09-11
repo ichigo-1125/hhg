@@ -3,7 +3,7 @@ splitを末尾から実行する。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let v = vector![11, 22, 33, 0, 44, 55];

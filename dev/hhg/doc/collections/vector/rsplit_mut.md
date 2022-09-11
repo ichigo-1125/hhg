@@ -3,7 +3,7 @@ split_mutを末尾から実行する。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let mut v = vector![100, 400, 300, 200, 600, 500];

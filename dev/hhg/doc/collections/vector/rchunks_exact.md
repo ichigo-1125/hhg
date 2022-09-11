@@ -3,7 +3,7 @@ chunks_exactを末尾から実行する。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let slice = vector!['l', 'o', 'r', 'e', 'm'];

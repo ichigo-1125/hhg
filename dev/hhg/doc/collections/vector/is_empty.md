@@ -3,7 +3,7 @@ Vectorが空であるかを確認する。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let v = vector![15, 31, 11, 25];

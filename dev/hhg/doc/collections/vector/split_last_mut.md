@@ -3,7 +3,7 @@ Vectorを最後の要素と残りの要素の可変スライスに分ける。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let mut x = vector![0, 1, 2];

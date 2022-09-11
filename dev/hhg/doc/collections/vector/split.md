@@ -8,7 +8,7 @@
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let v = vector![10, 40, 33, 20];

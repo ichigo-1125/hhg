@@ -4,7 +4,7 @@
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let mut v = vector!["foo", "bar", "baz", "qux"];

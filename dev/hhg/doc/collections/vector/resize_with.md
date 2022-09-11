@@ -7,7 +7,7 @@ new_lenが現在の長さよりも小さかった場合、new_lenに合わせて
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let mut v = vector![1, 2, 3];
