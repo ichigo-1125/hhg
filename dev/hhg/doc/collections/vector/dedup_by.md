@@ -6,7 +6,7 @@ trueを返す場合は、aが削除される点に注意。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let mut v = vector!["foo", "bar", "Bar", "baz", "bar"];

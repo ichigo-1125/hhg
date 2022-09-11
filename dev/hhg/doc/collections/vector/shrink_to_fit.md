@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 
 let mut v = Vector::with_capacity(10);
 v.extend([1, 2, 3]);

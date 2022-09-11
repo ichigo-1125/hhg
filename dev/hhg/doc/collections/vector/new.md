@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 
 let v: Vector<i32> = Vector::new();
 ```

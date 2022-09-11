@@ -3,7 +3,7 @@ Vectorの末尾の要素がneedleで終わるかどうかを調べる。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let v = vector![10, 40, 30];

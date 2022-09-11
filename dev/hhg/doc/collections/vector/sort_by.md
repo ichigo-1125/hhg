@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let mut floats = vector![5f64, 4.0, 1.0, 3.0, 2.0];

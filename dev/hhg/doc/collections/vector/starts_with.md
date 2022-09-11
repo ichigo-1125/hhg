@@ -3,7 +3,7 @@ Vectorの先頭の要素がneedleで始まるかどうかを調べる。
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let v = vector![10, 40, 30];

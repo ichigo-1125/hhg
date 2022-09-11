@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::vector::Vector;
+use hhg::collections::Vector;
 use hhg::vector;
 
 let mut v = vector![-5i32, 4, 1, -3, 2];
