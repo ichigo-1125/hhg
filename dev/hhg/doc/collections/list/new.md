@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::list::List;
+use hhg::collections::List;
 
 let list: List<i32> = List::new();
 ```

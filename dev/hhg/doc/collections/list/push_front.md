@@ -3,7 +3,7 @@
 ## 使用例
 
 ```
-use hhg::collections::list::List;
+use hhg::collections::List;
 use hhg::list;
 
 let mut list = list![1, 2];

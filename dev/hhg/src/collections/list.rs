@@ -10,7 +10,7 @@
 
     - コンストラクタ
     - 状態の取得
-    - Listの伸縮
+    - 要素の追加・削除
 
     - トレイトの実装
 
@@ -81,6 +81,21 @@ impl<T> List<T>
     pub fn is_empty( &self ) -> bool
     {
         self.list.is_empty()
+    }
+}
+
+impl<T: PartialEq> List<T>
+{
+    //--------------------------------------------------------------------------
+    //  contains
+    //
+    //  要素が存在するかを確認する。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/list/contains.md")]
+    #[inline]
+    pub fn contains( &self, x: &T ) -> bool
+    {
+        self.list.contains(x)
     }
 }
 
@@ -191,6 +206,42 @@ impl<T> List<T>
     pub fn pop_back( &mut self ) -> Option<T>
     {
         self.list.pop_back()
+    }
+
+    //--------------------------------------------------------------------------
+    //  clear
+    //
+    //  全ての要素を削除する（ただし容量は変わらない）。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/list/clear.md")]
+    #[inline]
+    pub fn clear( &mut self )
+    {
+        self.list.clear();
+    }
+
+    //--------------------------------------------------------------------------
+    //  split_off
+    //
+    //  指定したインデックスでListを分割し、末尾のListを返す。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/list/split_off.md")]
+    #[inline]
+    pub fn split_off( &mut self, at: usize ) -> List<T>
+    {
+        List { list: self.list.split_off(at) }
+    }
+
+    //--------------------------------------------------------------------------
+    //  append
+    //
+    //  別のListを末尾に移動する。otherは空になる。
+    //--------------------------------------------------------------------------
+    #[doc = include_str!("../../doc/collections/list/append.md")]
+    #[inline]
+    pub fn append( &mut self, other: &mut List<T> )
+    {
+        self.list.append(other)
     }
 }
 

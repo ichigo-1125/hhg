@@ -3,7 +3,7 @@ Listが空であるかを確認する。
 ## 使用例
 
 ```
-use hhg::collections::list::List;
+use hhg::collections::List;
 use hhg::list;
 
 let list = list![15, 31, 11, 25];
